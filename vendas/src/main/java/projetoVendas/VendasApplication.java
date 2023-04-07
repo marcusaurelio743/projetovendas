@@ -1,5 +1,7 @@
 package projetoVendas;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,17 +11,24 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class VendasApplication {
 	
+	@Autowired
+	@Qualifier("applicationName")
+	
+	private String applicationName;
+	
 	@GetMapping("/hello")
 	public String helloWord() {
 		
 		
-		return " hello Word ";
+		return applicationName;
 	}
-	
+	@Autowired
+	@Qualifier("mensagem")
+	private String mensagem;
 	@GetMapping("/mensagem")
 	
 	public String Mensagem() {
-		return " Olá Usuario Seja bem vindo ao Spring Boot";
+		return mensagem;
 	}
 	
 	public static void main(String[] args) {
