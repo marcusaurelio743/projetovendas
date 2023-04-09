@@ -17,7 +17,7 @@ public class VendasApplication {
 	@Value("${application.name}")
 	private String applicationName;
 	
-	@Cachorro
+	@Cachorro  
 	private Animal animal;
 	
 	@Bean
